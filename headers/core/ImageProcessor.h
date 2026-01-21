@@ -1,22 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#include "../headers/data_structures/ImageLogic.h"
 
 class ImageProcessor{
 public:
-    struct ProcessedImage
-    {
-        sf::Image image;
-        unsigned int width;
-        unsigned int height;
-    };
-    
-    static ProcessedImage process(
-        const sf::Image& image,
-        unsigned int width,
-        unsigned int height,
-        bool toGrayscale = true
-    );
-private:
-    static sf::Color toGrayScale(const sf::Color& color);
-};
+    static PixelMatrix resize(const sf::Image& img, unsigned int width, unsigned int height);
+};   

@@ -4,8 +4,9 @@
 
 #include "Button.h"
 #include "Text.h"
-#include "../headers/core/AppState.h"
-#include "../headers/core/FileDialog.h"
+#include "../headers/core/AppLogic.h"
+
+class Application;
 class UIController{
 private:
     static constexpr float BUTTON_WIDTH = 100.f;
@@ -14,7 +15,7 @@ private:
     static constexpr float MARGIN_TOP = 50.f;
     static constexpr float MARGIN_BETWEEN = 25.f;
 private:
-    AppState &state;
+    AppLogic& logic;
     std::vector<Button> buttons;
     std::vector<Text> labels;
     sf::Font font;
@@ -24,10 +25,10 @@ private:
     void createParametrsInfo();
 
 public:
-    UIController(AppState& state);
+    UIController(AppLogic& logic);
 
     void handleEvents(const sf::Event& event, const sf::RenderWindow& window);
     void render(sf::RenderWindow& window);
     void updateLayot();
-    void loadImage();
+    void updateParametrsinfo();
 };

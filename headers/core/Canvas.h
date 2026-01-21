@@ -2,16 +2,20 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-#include "AppState.h"
-#include "StringGenerator.h"
+#include "../headers/data_structures/Geometry.h"
+
 
 class Canvas{
 private:
     std::vector<sf::Vertex> lines;
-    std::vector<sf::CircleShape> nails;
-
-    mutable sf::Texture imageTexture;
-
+    std::vector<sf::CircleShape> pins;
 public:
-    void render(sf::RenderWindow& window, const AppState& state) const;
+    Canvas() = default;
+    void render(sf::RenderWindow& window, int canvasWidth, int canvasHeight);
+
+    void setNailPositions(const std::vector<Pin>& pins);
+    void addLine(const Line& line, int opacity);
+
+    void clear();
+
 };

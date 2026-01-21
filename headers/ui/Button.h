@@ -29,6 +29,7 @@ public:
 
     ~Button() = default;
 public:
-    void setFunction(std::function<void()> func);
     void setPosition(const sf::Vector2f& pos);
+
+    sf::Vector2f getPosition(){ return shape.getPosition();}
 };

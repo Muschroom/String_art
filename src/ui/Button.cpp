@@ -28,10 +28,6 @@ void Button::setPosition(const sf::Vector2f& pos){
     shape.setPosition(pos);
 }
 
-void Button::setFunction(std::function<void()> func){
-    callback = std::move(func);
-}
-
 void Button::render(sf::RenderWindow& window) const{
     window.draw(shape);
     window.draw(text);

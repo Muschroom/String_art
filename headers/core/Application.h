@@ -2,23 +2,22 @@
 #include <SFML/Graphics.hpp> 
 
 #include "../headers/ui/UIController.h"
-#include "../headers/core/Canvas.h"
+#include "AppLogic.h"
 #include "AppState.h"
-
+#include "Canvas.h"
 class Application{
 private:
+    Canvas canvas;
     AppState state;
+    AppLogic logic;
     sf::RenderWindow window;
     UIController controller;
-    Canvas canvas;
-
 protected:
-    void listenEvents();
-    void render();
+    void handleEvents();
+    void renderWindow();
 public:
     Application();
 
     void run();
 
-    ~Application() = default;
 };
